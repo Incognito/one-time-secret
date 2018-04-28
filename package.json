@@ -1,0 +1,71 @@
+{
+  "name": "one-time-secret",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "engines": {
+    "node": ">=10.0.0 <11.0.0"
+  },
+  "scripts": {
+    "build": "tsc --rootDir ./",
+    "build:watch": "tsc --rootDir ./ -w",
+    "build:test": "tsc --rootDir ./ ",
+    "circular": "madge --circular dist/",
+    "complexity": "./node_modules/.bin/ts-complexity --max-complexity=20  --pattern './{src,bin}/**/*.ts'",
+    "clean": "rm -fr dist",
+    "lint": "tslint -p .",
+    "postinstall": "npm run build",
+    "prebuild": "npm run clean",
+    "pretest": "npm run lint && npm run build:test",
+    "test": "TZ=UTC jest spec",
+    "test:watch": "npm run test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freight-hub/one-time-secret.git"
+  },
+  "description": "Store secrets for one-time-access.",
+  "author": "Brian Graham",
+  "keywords": [],
+  "dependencies": {
+    "@types/node-schedule": "^1.2.2",
+    "@types/winston-syslog": "^1.0.0",
+    "commander": "^2.15.1",
+    "lodash": "~4.17.5",
+    "node-dependency-injection": "^2.0.1",
+    "node-schedule": "^1.3.0",
+    "typescript": "^2.8.1",
+    "winston": "^3.0.0-rc5",
+    "winston-syslog": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.7",
+    "jest": "~22.4.3",
+    "madge": "^3.0.1",
+    "ts-complexity": "0.0.3",
+    "ts-jest": "^22.4.3",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript-eslint-parser": "^14.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "test.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test.ts"
+  }
+}

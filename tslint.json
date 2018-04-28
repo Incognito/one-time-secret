@@ -1,0 +1,22 @@
+{
+    "extends": "tslint-config-standard",
+    "rules": {
+        "space-before-function-paren": ["error", "always"],
+        "trailing-comma": true,
+        "ter-indent": [
+            true,
+            2
+        ],
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "no-floating-promises": true,
+        "no-angle-bracket-type-assertion": false,
+        "no-console": true
+    }
+}
