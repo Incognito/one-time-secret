@@ -1,4 +1,4 @@
-import * as winston from 'winston'
+import * as winston from 'winston';
 
 // From the docs:
 // Requiring `winston-syslog` will expose `winston.transports.Syslog`
@@ -10,7 +10,7 @@ winston.add(new winston.transports.Syslog({
 }));
 
 // FIXME we can remove override once winston3 types work.
-const logger = (<any>winston).createLogger({
+const logger = (<any> winston).createLogger({
   levels: winston.config.syslog.levels,
   transports: [
     new winston.transports.Syslog(),
@@ -18,4 +18,4 @@ const logger = (<any>winston).createLogger({
   ]
 });
 
-export { logger }
+export { logger };

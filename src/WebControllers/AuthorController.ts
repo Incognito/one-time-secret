@@ -1,7 +1,9 @@
-import { WebControllerInterface } from './WebControllerInterface'
+import { WebControllerInterface } from './WebControllerInterface';
 
-export class AuthorController(){
+export class AuthorController implements WebControllerInterface {
   public execute(request, response) {
-    // TODO return an HTML template
+    if (request) {
+      return response;
+    }
   }
 }

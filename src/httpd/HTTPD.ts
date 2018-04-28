@@ -1,12 +1,12 @@
 import {
   Server,
   IncomingMessage,
-  ServerResponse 
-} from 'http'
+  ServerResponse
+} from 'http';
 
-import { RequestHandler } from './RequestHandler'
+import { RequestHandler } from './RequestHandler';
 
-class HTTPD {
+export class HTTPD {
   public constructor(
     private server: Server,
     private requestHandler: RequestHandler,
@@ -14,12 +14,16 @@ class HTTPD {
     private httpTimeoutMs: Number
   ) {
     server.on('clientError', (err, socket) => {
+      if (err) {
+        throw new Error(err); // TODO correctly deal with this
+      }
+
       socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
     });
-    server.setTimeout(httpTimeoutMs)
+    server.setTimeout(this.httpTimeoutMs);
 
-    server.on('request', (err, socket) => {
-      this.requestHandler.process(req: IncomingMessage, res: ServerResponse);
+    server.on('request', (req: IncomingMessage, res: ServerResponse) => {
+      this.requestHandler.process(req, res);
     });
   }
 
@@ -31,4 +35,3 @@ class HTTPD {
     this.server.close();
   }
 }
-

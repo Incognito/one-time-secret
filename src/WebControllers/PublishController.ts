@@ -1,8 +1,9 @@
-import { WebControllerInterface } from './WebControllerInterface'
+import { WebControllerInterface } from './WebControllerInterface';
 
-export class PublishController() {
+export class PublishController implements WebControllerInterface {
   public execute(request, response) {
-    // TODO return a redirect, also create a
-    // page to show the user what URL to pass
+    if (request) {
+      return response;
+    }
   }
 }

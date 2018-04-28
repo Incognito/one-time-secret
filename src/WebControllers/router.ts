@@ -1,11 +1,11 @@
 export function getRouter(publishSecretUri, fetchController, publishController, authorController) {
-  export const router = Map([
+  return Map([
     ['GET', new Map([
-      ['/fetch', fetchController]
-      ['/publishSecretUri', authorController]
+      ['/fetch', fetchController],
+      [publishSecretUri, authorController]
+    ])],
+    ['POST', new Map([
+      [publishSecretUri, publishController]
     ])]
-    ['POST' new Map([
-      ['/publishSecretUri', publishController]
-    ])]
-  ])
+  ]);
 }
