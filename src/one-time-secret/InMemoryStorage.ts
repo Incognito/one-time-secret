@@ -1,3 +1,7 @@
+import { StorageInterface } from './StorageInterface';
+
+export type SecretType = { secret: string | undefined };
+
 export class InMemoryStorage implements StorageInterface {
   /**
    * Intentionally not injecting the Map
@@ -14,36 +18,45 @@ export class InMemoryStorage implements StorageInterface {
    * location.
    */
 
-  constructor(){
-    this.map = new Map()
+  private map: Map<string, string>;
+
+  constructor() {
+    this.map = new Map();
   }
 
-  async get(key: string) {
-    return await new Promise((resolve)=>{
-      resolve({secret: this.map.get(key)})
-      const memoryReplacement = 'X'.repeat(secret.length)
-      const key = 'X'.repeat(key.length)
-      this.map.set(key, memoryReplacement)
-      this.map.delete(key)
-    })
-  }
+  // Resolve the value and delete the key
+  async get(key: string): Promise<SecretType> {
+    return <Promise<SecretType>> new Promise((resolve) => {
+      const result: SecretType = { secret: this.map.get(key) };
 
-  async has(key: string) {
-    return await new Promise((resolve)=>{
-      resolve(this.map.has(key));
-      const key = 'X'.repeat(key.length);
+      resolve(result);
+
+      // tslint:disable-next-line
+      if (!result.secret) {
+        key = 'X'.repeat(key.length);
+        const memoryReplacement = 'X'.repeat(result.secret!.length);
+        this.map.set(key, memoryReplacement);
+      }
+
+      this.map.delete(key);
     });
   }
 
-  async set(key: string, value: {secret: string}, ttl) {
-    return await new Promise((resolve)=>{
-      resolve(this.map.set(key, value.secret));
-      const value = 'X'.repeat(value.secret.length);
+  async has(key: string): Promise<boolean> {
+    return <any> new Promise((resolve) => {
+      resolve(this.map.has(key));
+      key = 'X'.repeat(key.length);
+    });
+  }
 
-    })
-    setTimeout(()=>{
+  // Set the value and delete the key after the TTL
+  set(key: string, value: SecretType, ttl: Number): void {
+    this.map.set(key, <string> value.secret);
+    value.secret = 'X'.repeat(value.secret!.length);
+
+    setTimeout(() => {
       this.map.delete(key);
       key = 'X'.repeat(key.length);
-    }, ttl)
+    }, ttl);
   }
 }
