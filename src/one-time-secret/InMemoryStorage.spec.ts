@@ -18,7 +18,6 @@ describe('InMemoryStorage Spec', function() {
     const result = await sut.get(key);
     jest.runOnlyPendingTimers(); // Simulates "wait 1000"
     const result2 = await sut.get(key);
-    console.log(result, result2);
 
     expect(result).toMatchObject({ 'secret': 'secret-name' });
     expect(result2).toMatchObject({ 'secret': undefined });
