@@ -10,8 +10,8 @@ export class HTTPD {
   public constructor(
     private server: Server,
     private requestHandler: RequestHandler,
-    private httpPort: Number,
-    private httpTimeoutMs: Number
+    private httpPort: number,
+    private httpTimeoutMs: number
   ) {
     server.on('clientError', (err, socket) => {
       if (err) {

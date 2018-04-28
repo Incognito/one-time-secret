@@ -3,7 +3,7 @@ import * as nodeUrl from 'url';
 export class RequestHandler {
   public constructor(
     private logger: any,
-    private router: Map
+    private router: Map<string, Map<string, Function>>
   ) {}
 
   public process(req, res) {
@@ -12,7 +12,7 @@ export class RequestHandler {
 
     let targetHttpController;
     try {
-      targetHttpController = this.router.get(method).get(url.pathname);
+      targetHttpController = <function> this.router.get(method).get(url.pathname);
     } catch (parseException) {
       this.logger.warn('404 Not Found', parseException);
       res.end('HTTP/1.1 404 Not Found\r\n\r\n');
