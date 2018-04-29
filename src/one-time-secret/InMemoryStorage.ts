@@ -50,7 +50,7 @@ export class InMemoryStorage implements StorageInterface {
   }
 
   // Set the value and delete the key after the TTL
-  set(key: string, value: SecretType, ttl: Number): void {
+  set(key: string, value: SecretType, ttl: number): void {
     this.map.set(key, <string> value.secret);
     value.secret = 'X'.repeat(value.secret!.length);
 
