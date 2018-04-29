@@ -14,6 +14,8 @@ export function render(url: string): string {
       <br>
       <input type="submit" value="Submit">
     </form>
+    <br>
+    <br>
     <table>
       <thead>
         <tr>
@@ -50,10 +52,8 @@ export function render(url: string): string {
           <td>2147483647</td>
           <td>
               24.8 days, <br>
-              NodeJS upper limit <br>
-              on delay time. <br>
-              Exceeding value causes <br>
-              node to execute <br>
+              NodeJS upper limit on delay time. <br>
+              Exceeding value causes node to execute <br>
               in 1 ms
           </td>
         </tr>
