@@ -27,7 +27,7 @@ jobs:
         steps:
         - checkout
         - restore_cache:
-            key: v0-install-and-build-cache-{{ .Revision }}
+            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
             name: Test for circular dependencies
             command: npm run circular
