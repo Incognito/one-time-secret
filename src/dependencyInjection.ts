@@ -9,6 +9,7 @@ import { FetchController } from './WebControllers/FetchController';
 import { render as ConfirmationView } from './templates/ConfirmationView';
 import { render as AuthorView } from './templates/AuthorView';
 import { InMemoryStorage } from './one-time-secret/InMemoryStorage';
+import { generateNewSlug } from './CSRNGSlugs/SlugGenerator';
 
 import { env } from './env';
 import { logger } from './logger';
@@ -24,7 +25,12 @@ const createHttpd = (router: any) => {
 };
 
 const authorController = new AuthorController(env, AuthorView);
-const confirmationController = new ConfirmationController(env, ConfirmationView, secretStore);
+const confirmationController = new ConfirmationController(
+  env,
+  ConfirmationView,
+  secretStore,
+  generateNewSlug
+);
 const fetchController = new FetchController(secretStore);
 
 const createApp = () => {
