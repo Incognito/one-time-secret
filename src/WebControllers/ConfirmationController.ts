@@ -7,7 +7,7 @@ import { StorageInterface } from '../one-time-secret/StorageInterface';
 
 export class ConfirmationController implements WebControllerInterface {
   public constructor(
-    private env: { KEY_NAME_RANDOM_BYTES: number },
+    private env: { KEY_NAME_RANDOM_BYTES: number, DOMAIN: string },
     private render: Function,
     private secretStore: StorageInterface,
     private generateNewSlug: Function,
@@ -31,7 +31,7 @@ export class ConfirmationController implements WebControllerInterface {
 
       const secretUrl = nodeUrl.format({
         protocol: 'https',
-        hostname: 'example.com',
+        hostname: this.env.DOMAIN,
         pathname: '/fetch',
         query: {
           key: secretKey
