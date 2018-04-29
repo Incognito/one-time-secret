@@ -10,8 +10,8 @@ function webstart () {
     return;
   }
   logger.info('Starting webserver');
-  const app = createApp()
-  app.start()
+  const app = createApp();
+  app.start();
 }
 
 webstart();

@@ -6,6 +6,7 @@ export function getRouter(
 ) {
   return new Map([
     ['GET', new Map([
+      ['/favicon.ico', (_: any, response: any) => { response.end(); }],
       ['/fetch', fetchController],
       [publishSecretUri, authorController]
     ])],

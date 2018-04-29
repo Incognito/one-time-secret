@@ -15,7 +15,7 @@ export class RequestHandler {
     try {
       targetHttpController = <Function> (<Map<string, Function>> this.router.get(method)).get(<string> url.pathname);
       if (!targetHttpController) {
-        throw new Error('Resource not in router')
+        throw new Error('Resource not in router');
       }
     } catch (parseException) {
       this.logger.warning('404 Not Found', parseException);

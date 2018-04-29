@@ -18,21 +18,21 @@ export class HTTPD {
 
     this.server.on('clientError', (err, socket) => {
       if (err) {
-        this.logger.error(`Error handling client error`)
+        this.logger.error(`Error handling client error`);
       }
 
-      this.logger.info(`Client request error`)
+      this.logger.info(`Client request error`);
       socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
     });
 
     this.server.on('request', (req: IncomingMessage, res: ServerResponse) => {
-      this.logger.debug(`Received Request`)
+      this.logger.debug(`Received Request`);
       this.requestHandler.process(req, res);
     });
   }
 
   public start() {
     this.server.listen(this.httpPort);
-    this.logger.info(`Started listening on port ${this.httpPort}`)
+    this.logger.info(`Started listening on port ${this.httpPort}`);
   }
 }
