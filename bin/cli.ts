@@ -1,16 +1,17 @@
 import { logger } from '../src/logger';
+import { createApp } from '../src/dependencyInjection';
 
 function webstart () {
   try {
-    crypto = require('crypto');
+    require('crypto');
   } catch (err) {
-    logger.emerg('Node on this server was build without Crypto support. I refuse to let you use this for your own good.');
+    logger.emerg('Node on this server was build without Crypto support. I refuse to let you use this for your own good.', err);
     process.exit(1);
     return;
   }
   logger.info('Starting webserver');
-
-    // TODO actually start a web server
+  const app = createApp();
+  app.start();
 }
 
 webstart();
