@@ -1,3 +1,5 @@
+import { IncomingMessage, ServerResponse } from 'http';
+
 export interface WebControllerInterface {
-  execute(request, response);
+  execute(request: IncomingMessage, response: ServerResponse): void;
 }
