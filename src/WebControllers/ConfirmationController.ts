@@ -9,11 +9,12 @@ export class ConfirmationController implements WebControllerInterface {
   public constructor(
     private env: { KEY_NAME_RANDOM_BYTES: number },
     private render: Function,
-    private secretStore: StorageInterface
+    private secretStore: StorageInterface,
+    private generateNewSlug: Function,
   ) {}
 
   public execute(request: IncomingMessage, response: ServerResponse) {
-    const secretKey = 'todo' + this.env.KEY_NAME_RANDOM_BYTES;
+    const secretKey = this.generateNewSlug(this.env.KEY_NAME_RANDOM_BYTES);
 
     let body = '';
     request.on('data', function (data) {
