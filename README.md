@@ -4,43 +4,29 @@
 
 Share secrets with one-time-access.
 
-Intended for situations when you need to send someone
-important information such as a password.
-
 My hope is this will reduce the number of developers
-sending credentials around in Emails and Slack.
+sending credentials around in Emails and Slack by
+making it really easy to set up.
 
-This message will self-destruct.
+### Setup Tutorials
+ - [AWS](https://github.com/Incognito/one-time-secret/wiki/Setup:-AWS)
+ - [GCloud](https://github.com/Incognito/one-time-secret/wiki/Setup:-GCloud)
+ - [Heroku](https://github.com/Incognito/one-time-secret/wiki/Setup:-Heroku)
+ - [Self-hosted](https://github.com/Incognito/one-time-secret/wiki/Setup:-Self-hosted)
+ 
+### Stuck on something?
+Look in the Wiki, everything from cusomizing, logging, and hosting is in there.
 
-### Design intentions
+### Design Intentions
 1. Permit self-hosting of secrets (many hosted services exist)
 1. Grokable code (others should be able to understand the code)
 1. Limited dependencies and easy installation (other open-source libraries require a lot of setup)
+1. Easily modified when needed
 
 ### Intentional Failure modes
-- Webserver restarted: total secret data loss, we only store secrets in-process-memory
-- Secret Data is removed: Overwrite string with a random string of equal length, and then delete string from memory.
+- Webserver restarted: total data loss, it will only store secrets in-process-memory.
+- Secret Data is removed: Overwrite string with a random string of equal length, and then delete string from map.
 - Secret Data reaches Time-To-Live age: Removed by check every 30 seconds
 
 ### Feature roadmap
-Check the GitHub project board.
-
-### Setup Tutorials
-Check the GitHub Wiki
-
-## Other things that will move into the wiki...
-
-### Syslog configuration
-The application uses use winston-syslog for logging.
-
-You probably don't need to configure anything here.
-
-If you have a non-local syslog server check out:
-https://github.com/winstonjs/winston-syslog#syslog-configuration
-
-### Attacks
-Some precautions have been taken to prevent taking secrets from
-in-process memory or crash files. If you have a viable option that
-doesn't require encrytion keys let me know.
-
-If you know of other attacks add an issue or PR so I can document it here.
+[Project Board](https://github.com/Incognito/one-time-secret/projects/1)
