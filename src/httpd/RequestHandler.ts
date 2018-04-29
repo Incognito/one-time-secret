@@ -24,7 +24,5 @@ export class RequestHandler {
     }
 
     targetHttpController(req, res);
-
-    res.end();
   }
 }

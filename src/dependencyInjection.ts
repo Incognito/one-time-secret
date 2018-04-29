@@ -7,7 +7,6 @@ import { AuthorController } from './WebControllers/AuthorController';
 import { ConfirmationController } from './WebControllers/ConfirmationController';
 import { FetchController } from './WebControllers/FetchController';
 import { render as ConfirmationView } from './templates/ConfirmationView';
-import { render as FetehView } from './templates/FetechView';
 import { render as AuthorView } from './templates/AuthorView';
 import { InMemoryStorage } from './one-time-secret/InMemoryStorage';
 
@@ -26,7 +25,7 @@ const createHttpd = (router: any) => {
 
 const authorController = new AuthorController(env, AuthorView);
 const confirmationController = new ConfirmationController(env, ConfirmationView, secretStore);
-const fetchController = new FetchController(FetehView, secretStore);
+const fetchController = new FetchController(secretStore);
 
 const createApp = () => {
   const router = getRouter(

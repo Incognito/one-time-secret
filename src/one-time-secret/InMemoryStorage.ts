@@ -26,18 +26,9 @@ export class InMemoryStorage implements StorageInterface {
 
   // Resolve the value and delete the key
   async get(key: string): Promise<SecretType> {
-    return <Promise<SecretType>> new Promise((resolve) => {
+    return await <Promise<SecretType>> new Promise((resolve) => {
       const result: SecretType = { secret: this.map.get(key) };
-
       resolve(result);
-
-      // tslint:disable-next-line
-      if (! result.secret) {
-        key = 'X'.repeat(key.length);
-        const memoryReplacement = 'X'.repeat(result.secret!.length);
-        this.map.set(key, memoryReplacement);
-      }
-
       this.map.delete(key);
     });
   }
@@ -45,18 +36,15 @@ export class InMemoryStorage implements StorageInterface {
   async has(key: string): Promise<boolean> {
     return <any> new Promise((resolve) => {
       resolve(this.map.has(key));
-      key = 'X'.repeat(key.length);
     });
   }
 
   // Set the value and delete the key after the TTL
   set(key: string, value: SecretType, ttl: number): void {
     this.map.set(key, <string> value.secret);
-    value.secret = 'X'.repeat(value.secret!.length);
 
     setTimeout(() => {
       this.map.delete(key);
-      key = 'X'.repeat(key.length);
     }, ttl);
   }
 }
