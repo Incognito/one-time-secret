@@ -1,6 +1,6 @@
-import { render as BaseView } from './BaseView'
+import { render as baseView } from './BaseView';
 
-export const render(url: string): string {
+export function render(url: string): string {
   const view = `
     <h2>Enter a secret</h2>
     <form action='${url}' method='POST'>
@@ -60,5 +60,5 @@ export const render(url: string): string {
       </tbody>
     </table>
   `.trim();
-  return baseView(view)
+  return baseView(view);
 }

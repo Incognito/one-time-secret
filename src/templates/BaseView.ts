@@ -1,4 +1,4 @@
-export const render(body: string): string{
+export function render(body: string): string {
   return `
     <!doctype html>
     <head>
