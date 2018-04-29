@@ -32,7 +32,7 @@ export class InMemoryStorage implements StorageInterface {
       resolve(result);
 
       // tslint:disable-next-line
-      if (!result.secret) {
+      if (! result.secret) {
         key = 'X'.repeat(key.length);
         const memoryReplacement = 'X'.repeat(result.secret!.length);
         this.map.set(key, memoryReplacement);
