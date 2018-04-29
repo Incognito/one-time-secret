@@ -28,7 +28,7 @@ Look in the Wiki, everything from cusomizing, logging, and hosting is in there.
 ### Intentional Failure modes
 - Webserver restarted: total data loss, it will only store secrets in-process-memory.
 - Secret Data is removed: Overwrite string with a random string of equal length, and then delete string from map.
-- Secret Data reaches Time-To-Live age: Removed by check every 30 seconds
+- Secret Data reaches Time-To-Live age: Removed automatically.
 
 ### Feature roadmap
 [Project Board](https://github.com/Incognito/one-time-secret/projects/1)
