@@ -26,7 +26,8 @@ export class InMemoryStorage implements StorageInterface {
 
   // Resolve the value and delete the key
   async get(key: string): Promise<SecretType> {
-    return new Promise((resolve) => {
+    // tslint:disable-next-line
+    return <Promise<SecretType>> new Promise((resolve) => {
       const result: SecretType = { secret: this.map.get(key) };
       resolve(result);
       this.map.delete(key);
