@@ -13,6 +13,7 @@ describe('HTTPD Spec', function() {
     const requestHandlerMock = { process: processMock };
 
     const sut = new HTTPD(
+      <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() },
       <any> serverMock,
       <any> requestHandlerMock,
       1337,
@@ -42,6 +43,7 @@ describe('HTTPD Spec', function() {
     const requestHandlerMock = {};
 
     const sut = new HTTPD(
+      <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() },
       <any> serverMock,
       <any> requestHandlerMock,
       1337,

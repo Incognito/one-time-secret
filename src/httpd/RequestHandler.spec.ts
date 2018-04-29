@@ -2,7 +2,7 @@ import { RequestHandler } from './RequestHandler';
 
 describe('RequestHandler Spec', function() {
   it('should construct', function() {
-    const loggerMock = { warn: jest.fn() };
+    const loggerMock = { warning: jest.fn() };
     const router = new Map();
 
     const sut = new RequestHandler(loggerMock, router);
@@ -10,7 +10,7 @@ describe('RequestHandler Spec', function() {
   });
 
   it('should process web request', function() {
-    const loggerMock = { warn: jest.fn() };
+    const loggerMock = { warning: jest.fn() };
     const method = 'POST';
     const url = '/sut';
     const mockController = jest.fn();
@@ -30,7 +30,7 @@ describe('RequestHandler Spec', function() {
   });
 
   it('should fail if route not found', function() {
-    const loggerMock = { warn: jest.fn() };
+    const loggerMock = { warning: jest.fn() };
     const method = 'POST';
     const url = '/sut';
     const mockController = jest.fn();

@@ -14,8 +14,11 @@ export class RequestHandler {
     let targetHttpController;
     try {
       targetHttpController = <Function> (<Map<string, Function>> this.router.get(method)).get(<string> url.pathname);
+      if (!targetHttpController) {
+        throw new Error('Resource not in router')
+      }
     } catch (parseException) {
-      this.logger.warn('404 Not Found', parseException);
+      this.logger.warning('404 Not Found', parseException);
       res.end('HTTP/1.1 404 Not Found\r\n\r\n');
       return;
     }
