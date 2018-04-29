@@ -49,6 +49,13 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/templates/*",
+      "!src/env.ts",
+      "!src/logger.ts",
+      "!src/WebControllers/router.ts"
+    ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
     "testPathIgnorePatterns": [
       "/node_modules/",
