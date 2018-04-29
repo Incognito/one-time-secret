@@ -1,12 +1,16 @@
 import { IncomingMessage, ServerResponse } from 'http';
 
 import { WebControllerInterface } from './WebControllerInterface';
-import { render } from '../templates/AuthorView';
 
 export class AuthorController implements WebControllerInterface {
+  public constructor(
+    private env: { PUBLISH_SECRET_URI: string },
+    private render: Function
+  ) {}
+
   public execute(_: IncomingMessage, response: ServerResponse) {
     response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.end(render('TODO Secret'));
+    response.end(this.render(this.env.PUBLISH_SECRET_URI));
     return response;
   }
 }
