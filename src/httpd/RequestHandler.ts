@@ -20,7 +20,7 @@ export class RequestHandler {
       return;
     }
 
-    targetHttpController();
+    targetHttpController(req, res);
 
     res.end();
   }
