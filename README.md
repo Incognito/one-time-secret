@@ -11,8 +11,8 @@ making it really easy to set up.
 ![Demo of app working](https://raw.githubusercontent.com/Incognito/one-time-secret/github-image-assets/one-time-demo.gif?token=AAXJuuLEN6E5tgxXi6IpPFGD-NZl1Jf3ks5a7zv-wA%3D%3D)
 
 ### Setup Tutorials
- - [AWS](https://github.com/Incognito/one-time-secret/wiki/Setup:-AWS)
- - [GCloud](https://github.com/Incognito/one-time-secret/wiki/Setup:-GCloud)
+ - [AWS](https://github.com/Incognito/one-time-secret/wiki/Setup:-AWS) (coming soon)
+ - [GCloud](https://github.com/Incognito/one-time-secret/wiki/Setup:-GCloud) (coming soon)
  - [Heroku](https://github.com/Incognito/one-time-secret/wiki/Setup:-Heroku)
  - [Self-hosted](https://github.com/Incognito/one-time-secret/wiki/Setup:-Self-hosted)
  
