@@ -15,13 +15,13 @@ export class ConfirmationController implements WebControllerInterface {
 
   public execute(request: IncomingMessage, response: ServerResponse) {
     const secretKey = this.generateNewSlug(this.env.KEY_NAME_RANDOM_BYTES);
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
       let body = '';
       request.on('data', (data) => {
         body += data;
         if (body.length > 1024 * this.env.MAX_UPLOAD_KB) { // 128 kb // TODO set as envvar
           request.connection.destroy();
-          reject()
+          reject();
         }
       });
 
@@ -41,8 +41,8 @@ export class ConfirmationController implements WebControllerInterface {
 
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.end(this.render(secretUrl));
-        resolve()
+        resolve();
       });
-    }
-  })
+    });
+  }
 }
