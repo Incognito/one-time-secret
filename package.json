@@ -54,7 +54,8 @@
       "!src/templates/*",
       "!src/env.ts",
       "!src/logger.ts",
-      "!src/WebControllers/router.ts"
+      "!src/WebControllers/router.ts",
+      "!src/dependencyInjection.ts"
     ],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
     "testPathIgnorePatterns": [
