@@ -4,9 +4,9 @@ services:
   web:
     image: node:10
     working_dir: /home/node/app
-    user: node
+    user: root
     ports:
-      - 8080
+      - 8080:8080
     environment:
       PUBLISH_SECRET_URI: /new
       KEY_NAME_RANDOM_BYTES: 0
@@ -17,4 +17,4 @@ services:
     volumes:
       - ./:/home/node/app
     command: >
-      bash -c "npm install"
+      bash -c "npm install && node dist/bin/cli.js"
