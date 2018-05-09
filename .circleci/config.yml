@@ -29,14 +29,40 @@ jobs:
         - restore_cache:
             key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
-            name: Test for circular dependencies
-            command: npm run circular
+            name: Install dependencies
+            command: npm install --pure-lockfile
         - run:
-            name: Check lint
-            command: npm run lint
+            name: Build project
+            command: npm run build:test
+        - save_cache:
+            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            paths:
+                - dist
+                - node_modules
+
+    teste2e:
+        machine: true
+        working_directory: ~/one-time-secret
+        steps:
+        - checkout
+        - restore_cache:
+            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
-            name: Refuse complex code.
-            command: npm run complexity
+            name: Install docker-compose
+            command: |
+                curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+                chmod +x ~/docker-compose
+                sudo mv ~/docker-compose /usr/local/bin/docker-compose
+        - run:
+            name: Start docker-compose
+            command: |
+                set -x
+                docker-compose -f docker-compose.test.yml up -d
+                sleep 10
+        - run:
+            name: Run e2e tests
+            command: |
+                npm run test:e2e
 
 workflows:
     version: 2
@@ -44,5 +70,8 @@ workflows:
         jobs:
         - build
         - test:
+            requires:
+                - build
+        - teste2e:
             requires:
                 - build

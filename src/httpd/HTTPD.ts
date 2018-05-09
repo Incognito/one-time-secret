@@ -32,7 +32,8 @@ export class HTTPD {
   }
 
   public start() {
+    this.logger.info(`Startint on port ${this.httpPort}`);
     this.server.listen(this.httpPort);
-    this.logger.info(`Started listening on port ${this.httpPort}`);
+    this.logger.info(`Server Start listening on port ${this.httpPort}`);
   }
 }
