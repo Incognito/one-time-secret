@@ -12,7 +12,6 @@ making it really easy to set up.
 
 ### Setup Tutorials
  - [AWS](https://github.com/Incognito/one-time-secret/wiki/Setup:-AWS) (coming soon)
- - [GCloud](https://github.com/Incognito/one-time-secret/wiki/Setup:-GCloud) (coming soon)
  - [Heroku](https://github.com/Incognito/one-time-secret/wiki/Setup:-Heroku)
  - [Self-hosted](https://github.com/Incognito/one-time-secret/wiki/Setup:-Self-hosted)
  
