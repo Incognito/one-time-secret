@@ -11,10 +11,11 @@ making it really easy to set up.
 ![Demo of app working](https://raw.githubusercontent.com/Incognito/one-time-secret/github-image-assets/one-time-demo.gif?token=AAXJuuLEN6E5tgxXi6IpPFGD-NZl1Jf3ks5a7zv-wA%3D%3D)
 
 ### Setup Tutorials
- - [AWS](https://github.com/Incognito/one-time-secret/wiki/Setup:-AWS) (coming soon)
  - [Heroku](https://github.com/Incognito/one-time-secret/wiki/Setup:-Heroku)
  - [Self-hosted](https://github.com/Incognito/one-time-secret/wiki/Setup:-Self-hosted)
- 
+
+If you want to contribute more tutorials please create an issiue so I can add the content.
+
 ### Stuck on something?
 Look in the Wiki, everything from cusomizing, logging, and hosting is in there.
 
