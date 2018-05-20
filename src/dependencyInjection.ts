@@ -10,6 +10,7 @@ import { render as ConfirmationView } from './templates/ConfirmationView';
 import { render as AuthorView } from './templates/AuthorView';
 import { InMemoryStorage } from './one-time-secret/InMemoryStorage';
 import { generateNewSlug } from './CSRNGSlugs/SlugGenerator';
+import { generateIv, encrypt, decrypt } from './crypto/crypto';
 
 import { env } from './env';
 import { logger } from './logger';
@@ -29,9 +30,15 @@ const confirmationController = new ConfirmationController(
   env,
   ConfirmationView,
   secretStore,
-  generateNewSlug
+  generateNewSlug,
+  generateIv,
+  encrypt,
 );
-const fetchController = new FetchController(secretStore);
+
+const fetchController = new FetchController(
+  secretStore,
+  decrypt
+);
 
 const createApp = () => {
   const router = getRouter(

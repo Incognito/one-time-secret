@@ -11,6 +11,8 @@ export class ConfirmationController implements WebControllerInterface {
     private render: Function,
     private secretStore: StorageInterface,
     private generateNewSlug: Function,
+    private generateIv: Function,
+    private encrypt: Function
   ) {}
 
   public execute(request: IncomingMessage, response: ServerResponse) {
@@ -27,15 +29,20 @@ export class ConfirmationController implements WebControllerInterface {
 
       request.on('end', () => {
         const parsedBody = querystring.parse(body);
+        const iv = this.generateIv();
+        const pass = this.generateIv().toString();
+        const encryptedMessage = this.encrypt(parsedBody.string, iv, pass);
 
-        this.secretStore.set(secretKey, <{secret: string}> parsedBody , +parsedBody.ttl);
+        this.secretStore.set(secretKey, <{secret: string}> { secret: encryptedMessage }, +parsedBody.ttl);
 
         const secretUrl = nodeUrl.format({
           protocol: 'https',
           hostname: this.env.DOMAIN,
           pathname: '/fetch',
           query: {
-            key: secretKey
+            key: secretKey,
+            iv,
+            pass
           }
         });
 
