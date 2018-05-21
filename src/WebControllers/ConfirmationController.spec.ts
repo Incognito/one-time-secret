@@ -52,7 +52,7 @@ describe('ConfirmationController Spec', function() {
     await sut.execute(requestStreamMock, <any> mockResponse);
 
     expect(mockResponse.writeHead).toBeCalledWith(200, { 'Content-Type': 'text/html' });
-    expect(mockResponse.end).toBeCalledWith('https://example.com/fetch?key=1&iv=&pass=%00');
+    expect(mockResponse.end).toBeCalledWith('https://example.com/fetch?key=1&iv=00&pass=00');
   });
 
   it('should fail large uploads', async function() {

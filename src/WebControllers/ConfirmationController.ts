@@ -30,8 +30,8 @@ export class ConfirmationController implements WebControllerInterface {
       request.on('end', () => {
         const parsedBody = querystring.parse(body);
         const iv = this.generateIv();
-        const pass = this.generateIv().toString();
-        const encryptedMessage = this.encrypt(parsedBody.string, iv, pass);
+        const pass = this.generateIv().toString('hex');
+        const encryptedMessage = this.encrypt(parsedBody.secret, iv, pass);
 
         this.secretStore.set(secretKey, <{secret: string}> { secret: encryptedMessage }, +parsedBody.ttl);
 
@@ -41,7 +41,7 @@ export class ConfirmationController implements WebControllerInterface {
           pathname: '/fetch',
           query: {
             key: secretKey,
-            iv,
+            iv: iv.toString('hex'),
             pass
           }
         });

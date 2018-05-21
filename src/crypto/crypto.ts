@@ -17,5 +17,5 @@ export function encrypt(text: string, iv: Buffer, password: string): string {
 
 export function decrypt(text: string, iv: Buffer, password: string): string {
   const decipher = createDecipheriv(algorithm, password, iv);
-  return decipher.update(text,'hex','utf8') + decipher.final('utf8');
+  return decipher.update(text, 'hex', 'utf8') + decipher.final('utf8');
 }
