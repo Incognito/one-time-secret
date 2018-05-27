@@ -32,7 +32,7 @@ export class ConfirmationController implements WebControllerInterface {
         const pass = this.generateIv().toString('hex');
         const encryptedMessage = this.encrypt(parsedBody.secret, iv, pass);
 
-        this.secretStore.set(secretKey, <{secret: string}> { secret: encryptedMessage }, +parsedBody.ttl);
+        this.secretStore.set(secretKey, <{secret: string}> { secret: encryptedMessage }, +<string> parsedBody.ttl);
 
         const secretUrl = new URL('/fetch', `https://${this.env.DOMAIN}`);
         secretUrl.searchParams.append('key', secretKey);
