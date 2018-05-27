@@ -15,18 +15,22 @@ describe('RequestHandler Spec', function() {
     const url = '/sut';
     const mockController = jest.fn();
     const router = new Map([
-      ['GET', new Map([
+      ['POST', new Map([
         ['/sut', mockController]
       ])]
     ]);
     const sut = new RequestHandler(loggerMock, router);
 
-    // todo test fn is called
     const endMock = jest.fn();
 
     const request = { method, url };
-    const response = { end: endMock };
+    const response = {
+      end: endMock,
+      writeHead: jest.fn()
+    };
     sut.process(<any> request, <any> response);
+    expect(response.writeHead).not.toBeCalled();
+    expect(mockController).toBeCalled();
   });
 
   it('should call target controller', function() {
@@ -41,8 +45,6 @@ describe('RequestHandler Spec', function() {
     ]);
     const sut = new RequestHandler(loggerMock, router);
 
-    // todo test fn is called
-    // todo ensure mock controller is not called
     const endMock = jest.fn();
 
     const request = { method, url };
@@ -63,12 +65,14 @@ describe('RequestHandler Spec', function() {
     ]);
     const sut = new RequestHandler(loggerMock, router);
 
-    // todo test fn is called
-    // todo ensure mock controller is not called
     const endMock = jest.fn();
 
     const request = { method, url };
-    const response = { end: endMock };
+    const response = {
+      end: endMock,
+      writeHead: jest.fn()
+    };
     sut.process(<any> request, <any> response);
+    expect(response.writeHead).toBeCalledWith(404);
   });
 });

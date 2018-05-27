@@ -13,36 +13,38 @@ if ! curl --write-out %{http_code} --silent --output /dev/null http://localhost:
   exit 1
 fi
 
-if ! curl -s 'http://localhost:8080/new' \
+PUBLISH_RESPONSE="$(curl -s 'http://localhost:8080/new' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data 'secret=supersecretvalue&ttl=900000' \
-  | grep '>https://example.com/fetch[?]key=<'; then
-
+  --data 'secret=supersecretvalue&ttl=900000')"
+if ! echo "$PUBLISH_RESPONSE" | grep 'https://localhost:8080/fetch[?]key='; then
   echo "Expected response with secret link"
   exit 1
 fi
 
-if ! curl -s 'http://localhost:8080/fetch?key=' | grep 'supersecretvalue'; then
+
+RESPONSE_SECRET_URL="$(echo "$PUBLISH_RESPONSE" | grep 'https://localhost:8080/fetch[?]key=')"
+if ! curl -s ${RESPONSE_SECRET_URL/https:/http:} | grep 'supersecretvalue'; then
   echo "Expected to see supersecretvalue"
   exit 1
 fi
 
 sleep 1
-if $(curl -s 'http://localhost:8080/fetch?key=' | grep 'supersecretvalue'); then
+if curl -s ${RESPONSE_SECRET_URL/https:/http:} | grep 'supersecretvalue'; then
   echo "Expected value to be missing now that it has been read"
   exit 1
 fi
 
-if ! curl -s 'http://localhost:8080/new' \
+SHORT_DELAY_RESPONSE="$(curl -s 'http://localhost:8080/new' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data 'secret=anothersecret&ttl=500' \
-  | grep '>https://example.com/fetch[?]key=<'; then
-  echo "Expected to be able to save something with a different, sort expiry"
+  --data 'secret=anothersecret&ttl=500')"
+if ! echo "$SHORT_DELAY_RESPONSE" | grep 'https://localhost:8080/fetch'; then
+  echo "Expected to be able to save something with a different expiry"
   exit 1
 fi
 
+SHORT_DELAY_RESPONSE_SECRET_URL="$(echo "$SHORT_DELAY_RESPONSE" | grep 'https://localhost:8080/fetch[?]key=')"
 sleep 1 # because the previous test has a 500 ms ttl.
-if curl -s 'http://localhost:8080/fetch?key=' | grep 'anothersecret'; then
+if curl -s ${SHORT_DELAY_RESPONSE_SECRET_URL/https:/http:} | grep 'anothersecret'; then
   echo "Expected value to be missing now that it has been read"
   exit 1
 fi

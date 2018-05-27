@@ -19,7 +19,7 @@ export class RequestHandler {
       }
     } catch (parseException) {
       this.logger.warning('404 Not Found', parseException);
-      res.writeHead(404)
+      res.writeHead(404);
       res.end('HTTP/1.1 404 Not Found\r\n\r\n');
       return;
     }
