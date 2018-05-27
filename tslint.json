@@ -16,7 +16,6 @@
             "always"
         ],
         "no-floating-promises": true,
-        "no-angle-bracket-type-assertion": false,
-        "no-console": true
+        "no-angle-bracket-type-assertion": false
     }
 }

@@ -1,6 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import * as querystring from 'querystring';
-import * as nodeUrl from 'url';
 
 import { WebControllerInterface } from './WebControllerInterface';
 import { StorageInterface } from '../one-time-secret/StorageInterface';
@@ -35,19 +34,13 @@ export class ConfirmationController implements WebControllerInterface {
 
         this.secretStore.set(secretKey, <{secret: string}> { secret: encryptedMessage }, +parsedBody.ttl);
 
-        const secretUrl = nodeUrl.format({
-          protocol: 'https',
-          hostname: this.env.DOMAIN,
-          pathname: '/fetch',
-          query: {
-            key: secretKey,
-            iv: iv.toString('hex'),
-            pass
-          }
-        });
+        const secretUrl = new URL('/fetch', `https://${this.env.DOMAIN}`);
+        secretUrl.searchParams.append('key', secretKey);
+        secretUrl.searchParams.append('iv', iv.toString('hex'));
+        secretUrl.searchParams.append('pass', pass);
 
         response.writeHead(200, { 'Content-Type': 'text/html' });
-        response.end(this.render(secretUrl));
+        response.end(this.render(secretUrl.toString()));
         resolve();
       });
     });
