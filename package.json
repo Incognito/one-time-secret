@@ -43,7 +43,7 @@
     "ts-complexity": "0.0.3",
     "ts-jest": "^23.1.2",
     "tslint": "^5.9.1",
-    "tslint-config-standard": "^7.0.0",
+    "tslint-config-standard": "^8.0.0",
     "typescript-eslint-parser": "^17.0.1"
   },
   "jest": {
