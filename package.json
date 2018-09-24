@@ -44,7 +44,7 @@
     "ts-jest": "^23.1.2",
     "tslint": "^5.9.1",
     "tslint-config-standard": "^8.0.0",
-    "typescript-eslint-parser": "^17.0.1"
+    "typescript-eslint-parser": "^18.0.0"
   },
   "jest": {
     "transform": {
