@@ -36,7 +36,7 @@
     "winston-syslog": "^2.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.0.0",
+    "@types/jest": "^23.3.2",
     "@types/node": "^10.0.4",
     "jest": "~23.6.0",
     "madge": "^3.0.1",
