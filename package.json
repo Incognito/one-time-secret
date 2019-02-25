@@ -38,10 +38,10 @@
   "devDependencies": {
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.24",
-    "jest": "~23.6.0",
+    "jest": "~24.1.0",
     "madge": "^3.4.4",
     "ts-complexity": "0.0.3",
-    "ts-jest": "^23.10.5",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.13.0",
     "tslint-config-standard": "^8.0.0",
     "typescript-eslint-parser": "^20.1.1"
