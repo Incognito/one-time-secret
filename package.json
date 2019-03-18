@@ -42,7 +42,7 @@
     "madge": "^3.4.4",
     "ts-complexity": "0.0.3",
     "ts-jest": "^24.0.0",
-    "tslint": "^5.13.1",
+    "tslint": "^5.14.0",
     "tslint-config-standard": "^8.0.0",
     "typescript-eslint-parser": "^20.1.1"
   },
