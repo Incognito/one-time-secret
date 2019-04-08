@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.12.2",
+    "@types/node": "^11.13.0",
     "jest": "~24.7.1",
     "madge": "^3.4.4",
     "ts-complexity": "0.0.3",
