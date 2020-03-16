@@ -624,9 +624,9 @@
       "dev": true
     },
     "@typescript-eslint/typescript-estree": {
-      "version": "2.18.0",
-      "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-2.18.0.tgz",
-      "integrity": "sha512-gVHylf7FDb8VSi2ypFuEL3hOtoC4HkZZ5dOjXvVjoyKdRrvXAOPSzpNRnKMfaUUEiSLP8UF9j9X9EDLxC0lfZg==",
+      "version": "2.23.0",
+      "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-2.23.0.tgz",
+      "integrity": "sha512-pmf7IlmvXdlEXvE/JWNNJpEvwBV59wtJqA8MLAxMKLXNKVRC3HZBXR/SlZLPWTCcwOSg9IM7GeRSV3SIerGVqw==",
       "dev": true,
       "requires": {
         "debug": "^4.1.1",
@@ -1750,15 +1750,16 @@
       "dev": true
     },
     "dependency-tree": {
-      "version": "7.2.0",
-      "resolved": "https://registry.npmjs.org/dependency-tree/-/dependency-tree-7.2.0.tgz",
-      "integrity": "sha512-41LepYuMZNfd/wk7ppfhaOp8dzzd37t9hLP8XKg9WDQZ3u2WmNCR3eZOF/6jDatV+3OL4ChOON9a/UIeC75bYw==",
+      "version": "7.2.1",
+      "resolved": "https://registry.npmjs.org/dependency-tree/-/dependency-tree-7.2.1.tgz",
+      "integrity": "sha512-nBxnjkqDW4LqAzBazy60V4lE0mAtIQ+oers/GIIvVvGYVdCD9+RNNd4G9jjstyz7ZFVg/j/OiYCvK5MjoVqA2w==",
       "dev": true,
       "requires": {
         "commander": "^2.19.0",
         "debug": "^4.1.1",
         "filing-cabinet": "^2.5.1",
-        "precinct": "^6.2.0"
+        "precinct": "^6.2.0",
+        "typescript": "^3.7.5"
       },
       "dependencies": {
         "commander": {
@@ -2510,9 +2511,9 @@
           }
         },
         "resolve": {
-          "version": "1.15.0",
-          "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.15.0.tgz",
-          "integrity": "sha512-+hTmAldEGE80U2wJJDC1lebb5jWqvTYAfm3YZ1ckk1gBr0MnCqUKlwK1e+anaFljIl+F5tR5IoZcm4ZDA1zMQw==",
+          "version": "1.15.1",
+          "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.15.1.tgz",
+          "integrity": "sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==",
           "dev": true,
           "requires": {
             "path-parse": "^1.0.6"
@@ -4728,9 +4729,9 @@
       }
     },
     "madge": {
-      "version": "3.7.0",
-      "resolved": "https://registry.npmjs.org/madge/-/madge-3.7.0.tgz",
-      "integrity": "sha512-Qxv0lLgarPIptxD8PHS2nGyuYcyu21Y2dOSBH8O7hF8UEAEkMjjYpECYquBTOMoKNe6hKo1VnC3mCE/fn313XA==",
+      "version": "3.8.0",
+      "resolved": "https://registry.npmjs.org/madge/-/madge-3.8.0.tgz",
+      "integrity": "sha512-bcX2QxiTwWvZrNM+XkmZY1SPl18C2HGaQGhroj3YzqSRxQ1ns7WXCYDyGCfZwp/uLibnNd6IOWrRLOkCS+lpAg==",
       "dev": true,
       "requires": {
         "chalk": "^3.0.0",
@@ -4792,9 +4793,9 @@
           "dev": true
         },
         "commander": {
-          "version": "4.1.0",
-          "resolved": "https://registry.npmjs.org/commander/-/commander-4.1.0.tgz",
-          "integrity": "sha512-NIQrwvv9V39FHgGFm36+U9SMQzbiHvU79k+iADraJTpmrFFfx7Ds0IvDoAdZsDrknlkRk14OYoWXb57uTh7/sw==",
+          "version": "4.1.1",
+          "resolved": "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz",
+          "integrity": "sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==",
           "dev": true
         },
         "debug": {
@@ -5652,9 +5653,9 @@
       "dev": true
     },
     "postcss": {
-      "version": "7.0.26",
-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-7.0.26.tgz",
-      "integrity": "sha512-IY4oRjpXWYshuTDFxMVkJDtWIk2LhsTlu8bZnbEJA4+bYT16Lvpo8Qv6EvDumhYRgzjZl489pmsY3qVgJQ08nA==",
+      "version": "7.0.27",
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-7.0.27.tgz",
+      "integrity": "sha512-WuQETPMcW9Uf1/22HWUWP9lgsIC+KEHg2kozMflKjbeUtw9ujvFX6QmIfozaErDkmLWS9WEnEdEe6Uo9/BNTdQ==",
       "dev": true,
       "requires": {
         "chalk": "^2.4.2",
@@ -5854,9 +5855,9 @@
       },
       "dependencies": {
         "minimist": {
-          "version": "1.2.0",
-          "resolved": "http://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz",
-          "integrity": "sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=",
+          "version": "1.2.5",
+          "resolved": "http://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
+          "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==",
           "dev": true
         }
       }
