@@ -32,7 +32,7 @@
   "dependencies": {
     "@types/winston-syslog": "^1.0.0",
     "typescript": "^3.9.5",
-    "winston": "^3.0.0-rc5",
+    "winston": "^3.3.1",
     "winston-syslog": "^2.0.0"
   },
   "devDependencies": {
