@@ -1,18 +1,24 @@
 import { Readable } from 'stream';
 import { ConfirmationController } from './ConfirmationController';
 
-describe('ConfirmationController Spec', function() {
+const createConfirmationController = function() {
+  const secretStoreMock = { set: jest.fn() };
   const identity = (identity: any) => { return identity; };
+  const confirmationController = new ConfirmationController(
+    { KEY_NAME_RANDOM_BYTES: 1, MAX_UPLOAD_KB: 1, DOMAIN: 'example.com' },
+    identity,
+    <any> secretStoreMock,
+    identity,
+    () => { return Buffer.from('00', 'hex'); },
+    identity
+  );
+
+  return confirmationController;
+};
+
+describe('ConfirmationController Spec', function() {
   it('should have handlers for the request upload', function() {
-    const secretStoreMock = { set: jest.fn() };
-    const sut = new ConfirmationController(
-      { KEY_NAME_RANDOM_BYTES: 1, MAX_UPLOAD_KB: 1, DOMAIN: 'example.com' },
-      identity,
-      <any> secretStoreMock,
-      identity,
-      () => { return Buffer.from('00', 'hex'); },
-      identity
-    );
+    const sut = createConfirmationController();
 
     const mockRequest = {
       on: jest.fn(),
@@ -31,15 +37,7 @@ describe('ConfirmationController Spec', function() {
   });
 
   it('should process an upload', async function() {
-    const secretStoreMock = { set: jest.fn() };
-    const sut = new ConfirmationController(
-      { KEY_NAME_RANDOM_BYTES: 1, MAX_UPLOAD_KB: 1, DOMAIN: 'example.com' },
-      identity,
-      <any> secretStoreMock,
-      identity,
-      () => { return Buffer.from('00', 'hex'); },
-      identity
-    );
+    const sut = createConfirmationController();
 
     const requestStreamMock = <any> new Readable();
     requestStreamMock.push('some-normal-payload');
@@ -56,15 +54,7 @@ describe('ConfirmationController Spec', function() {
   });
 
   it('should fail large uploads', async function() {
-    const secretStoreMock = { set: jest.fn() };
-    const sut = new ConfirmationController(
-      { KEY_NAME_RANDOM_BYTES: 1, MAX_UPLOAD_KB: 1, DOMAIN: 'example.com' },
-      identity,
-      <any> secretStoreMock,
-      identity,
-      () => { return Buffer.from('00', 'hex'); },
-      identity
-    );
+    const sut = createConfirmationController();
 
     const requestStreamMock = <any> new Readable();
     requestStreamMock.push('x'.repeat(1026)); // more than max_upload_kb
