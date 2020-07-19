@@ -1,6 +1,24 @@
 import { Writable } from 'stream';
 import { HTTPD } from './HTTPD';
 
+const createJestLoggerMock = function() {
+  return <any> {
+    info: jest.fn(),
+    debug: jest.fn(),
+    error: jest.fn()
+  };
+}
+
+const createHttpdMock = function (serverMock: any, requestHandlerMock: any): HTTPD {
+  return new HTTPD(
+    <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() },
+    <any> serverMock,
+    <any> requestHandlerMock,
+    1337,
+    31337
+  );
+}
+
 describe('HTTPD Spec', function() {
   it('should setup the server', function() {
     const serverSetTimeoutMock = jest.fn();
@@ -13,13 +31,7 @@ describe('HTTPD Spec', function() {
     const processMock = jest.fn();
     const requestHandlerMock = { process: processMock };
 
-    const sut = new HTTPD(
-      <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() },
-      <any> serverMock,
-      <any> requestHandlerMock,
-      1337,
-      31337
-    );
+    const sut = createHttpdMock(serverMock, requestHandlerMock);
 
     expect(serverSetTimeoutMock.mock.calls.length).toBe(1);
     expect(serverSetTimeoutMock.mock.calls[0][0]).toBe(31337);
@@ -38,13 +50,7 @@ describe('HTTPD Spec', function() {
     };
     const requestHandlerMock = {};
 
-    const sut = new HTTPD(
-      <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() },
-      <any> serverMock,
-      <any> requestHandlerMock,
-      1337,
-      31337
-    );
+    const sut = createHttpdMock(serverMock, requestHandlerMock);
 
     sut.start();
 
@@ -58,7 +64,7 @@ describe('HTTPD Spec', function() {
     serverStreamMock.setTimeout = jest.fn();
 
     const requestHandlerMock = { process: jest.fn() };
-    const loggerMock = <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() };
+    const loggerMock = createJestLoggerMock();
 
     // tslint:disable-next-line
     new HTTPD(
@@ -84,7 +90,7 @@ describe('HTTPD Spec', function() {
     serverStreamMock.setTimeout = jest.fn();
 
     const requestHandlerMock = { process: jest.fn() };
-    const loggerMock = <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() };
+    const loggerMock = createJestLoggerMock();
 
     // tslint:disable-next-line
     new HTTPD(
@@ -111,7 +117,7 @@ describe('HTTPD Spec', function() {
     serverStreamMock.setTimeout = jest.fn();
 
     const requestHandlerMock = { process: jest.fn() };
-    const loggerMock = <any> { info: jest.fn(), debug: jest.fn(), error: jest.fn() };
+    const loggerMock = createJestLoggerMock();
 
     // tslint:disable-next-line
     new HTTPD(
