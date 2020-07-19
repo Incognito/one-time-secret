@@ -42,7 +42,7 @@
     "jest-junit": "^11.0.0",
     "madge": "^3.9.2",
     "ts-complexity": "0.0.3",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^26.1.3",
     "tslint": "^5.20.1",
     "tslint-config-standard": "^9.0.0",
     "typescript-eslint-parser": "^20.1.1"
