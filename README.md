@@ -1,6 +1,6 @@
 # One Time Secret
 
-[![CircleCI](https://circleci.com/gh/Incognito/one-time-secret/tree/master.svg?style=svg&circle-token=075ef0fe33b49a42abf7593cc8c9e2cf7329d6c1)](https://circleci.com/gh/Incognito/one-time-secret/tree/master)
+[![CircleCI](https://circleci.com/gh/Incognito/one-time-secret/tree/master.svg?style=svg&circle-token=075ef0fe33b49a42abf7593cc8c9e2cf7329d6c1)](https://circleci.com/gh/Incognito/one-time-secret/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/4d9d00c8635d064c58d3/maintainability)](https://codeclimate.com/github/Incognito/one-time-secret/maintainability)
 
 Share secrets with one-time-access.
 
