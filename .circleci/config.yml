@@ -32,7 +32,7 @@ jobs:
             name: Install dependencies
             command: npm install --pure-lockfile
         - run:
-            name: Build project
+            name: Build project and test
             command: npm run build:test
         - save_cache:
             key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
