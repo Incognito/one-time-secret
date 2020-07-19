@@ -3,7 +3,7 @@ jobs:
     build:
         working_directory: ~/one-time-secret
         docker:
-        - image: circleci/node:10.0
+        - image: circleci/node:14.0
         steps:
         - checkout
         - restore_cache:
@@ -23,7 +23,7 @@ jobs:
     test:
         working_directory: ~/one-time-secret
         docker:
-        - image: circleci/node:10.0
+        - image: circleci/node:14.0
         steps:
         - checkout
         - restore_cache:
@@ -32,13 +32,20 @@ jobs:
             name: Install dependencies
             command: npm install --pure-lockfile
         - run:
-            name: Build project and test
+            name: Build project
             command: npm run build:test
+        - run:
+            name: test:spec
+            command: npm run test:spec
+            environment:
+              JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
         - save_cache:
             key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
             paths:
                 - dist
                 - node_modules
+        - store_test_results:
+            path: ./reports/junit/
 
     teste2e:
         machine: true
