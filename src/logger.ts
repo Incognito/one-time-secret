@@ -1,4 +1,6 @@
-import * as winston from 'winston';
+// Winston's modular strategy doesn't work with import syntax
+// tslint:disable-next-line
+const winston = require('winston');
 
 // From the docs:
 // Requiring `winston-syslog` will expose `winston.transports.Syslog`
@@ -10,7 +12,7 @@ winston.add(new winston.transports.Syslog({
 }));
 
 // FIXME we can remove override once winston3 types work.
-const logger = (<any> winston).createLogger({
+const logger = winston.createLogger({
   levels: winston.config.syslog.levels,
   transports: [
     new winston.transports.Syslog(),
