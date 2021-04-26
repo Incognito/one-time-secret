@@ -2874,6 +2874,12 @@
           "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
           "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==",
           "dev": true
+        },
+        "typescript": {
+          "version": "3.9.9",
+          "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
+          "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==",
+          "dev": true
         }
       }
     },
@@ -2975,6 +2981,14 @@
         "ast-module-types": "^2.7.1",
         "node-source-walk": "^4.2.0",
         "typescript": "^3.9.7"
+      },
+      "dependencies": {
+        "typescript": {
+          "version": "3.9.9",
+          "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
+          "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==",
+          "dev": true
+        }
       }
     },
     "diff": {
@@ -3672,6 +3686,12 @@
             "is-core-module": "^2.2.0",
             "path-parse": "^1.0.6"
           }
+        },
+        "typescript": {
+          "version": "3.9.9",
+          "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
+          "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==",
+          "dev": true
         }
       }
     },
@@ -7301,6 +7321,12 @@
           "requires": {
             "has-flag": "^4.0.0"
           }
+        },
+        "typescript": {
+          "version": "3.9.9",
+          "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
+          "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==",
+          "dev": true
         }
       }
     },
@@ -8141,6 +8167,14 @@
             "ast-module-types": "^2.7.1",
             "node-source-walk": "^4.2.0",
             "typescript": "^3.9.7"
+          },
+          "dependencies": {
+            "typescript": {
+              "version": "3.9.9",
+              "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
+              "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==",
+              "dev": true
+            }
           }
         },
         "ms": {
@@ -9960,9 +9994,9 @@
       }
     },
     "typescript": {
-      "version": "3.9.9",
-      "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.9.9.tgz",
-      "integrity": "sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w=="
+      "version": "4.2.4",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.2.4.tgz",
+      "integrity": "sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg=="
     },
     "typescript-eslint-parser": {
       "version": "20.1.1",
