@@ -39,7 +39,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^16.0.0",
     "jest": "^26.6.3",
-    "jest-junit": "^12.1.0",
+    "jest-junit": "^12.2.0",
     "madge": "^5.0.1",
     "ts-complexity": "0.0.3",
     "ts-jest": "^26.5.6",
