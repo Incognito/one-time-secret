@@ -1625,9 +1625,9 @@
       "dev": true
     },
     "@types/winston-syslog": {
-      "version": "2.0.3",
-      "resolved": "https://registry.npmjs.org/@types/winston-syslog/-/winston-syslog-2.0.3.tgz",
-      "integrity": "sha512-YmdoT0Xa2iiPVpiBlN3GTHw3YnlZ+2pGSHk3NTcB3r4Y/S0J5QWqZhZhG6UJTb8y0jUQ9E01fiZSF9IJBMy2vA==",
+      "version": "2.0.4",
+      "resolved": "https://registry.npmjs.org/@types/winston-syslog/-/winston-syslog-2.0.4.tgz",
+      "integrity": "sha512-R+xQkPxHOSeAFF0rvWKgqauERgM/qnM+NDbK6YrwgxdiWymUgDA84pgKH0VWhlzFJySrAt2jcEoMh17iAetdOw==",
       "requires": {
         "@types/node": "*",
         "winston": "^3.0.0"
