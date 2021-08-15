@@ -7,7 +7,7 @@ jobs:
         steps:
         - checkout
         - restore_cache:
-            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            key: v1-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
             name: Install dependencies
             command: npm install --pure-lockfile
@@ -15,7 +15,7 @@ jobs:
             name: Build project
             command: npm run build:test
         - save_cache:
-            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            key: v1-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
             paths:
                 - dist
                 - node_modules
@@ -27,7 +27,7 @@ jobs:
         steps:
         - checkout
         - restore_cache:
-            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            key: v1-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
             name: Install dependencies
             command: npm install --pure-lockfile
@@ -40,7 +40,7 @@ jobs:
             environment:
               JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
         - save_cache:
-            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            key: v1-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
             paths:
                 - dist
                 - node_modules
@@ -53,7 +53,7 @@ jobs:
         steps:
         - checkout
         - restore_cache:
-            key: v0-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
+            key: v1-install-and-build-cache-{{ .Branch }}-{{ .Revision }}
         - run:
             name: Install docker-compose
             command: |
