@@ -41,7 +41,7 @@ export class ConfirmationController implements WebControllerInterface {
 
         response.writeHead(200, { 'Content-Type': 'text/html' });
         response.end(this.render(secretUrl.toString()));
-        resolve();
+        resolve(undefined);
       });
     });
   }
