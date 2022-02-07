@@ -33,7 +33,7 @@
     "@types/winston-syslog": "^2.0.4",
     "typescript": "^4.4.3",
     "winston": "^3.3.3",
-    "winston-syslog": "^2.4.4"
+    "winston-syslog": "^2.5.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
