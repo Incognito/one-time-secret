@@ -1602,9 +1602,9 @@
       }
     },
     "@types/node": {
-      "version": "16.9.1",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-16.9.1.tgz",
-      "integrity": "sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g=="
+      "version": "18.11.9",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-18.11.9.tgz",
+      "integrity": "sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg=="
     },
     "@types/normalize-package-data": {
       "version": "2.4.0",
